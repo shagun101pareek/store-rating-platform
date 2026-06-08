@@ -12,6 +12,14 @@ const app = express();
 app.use(cors());
 
 app.use(express.json({ limit: "2mb" }));
+app.get("/", (req, res) => {
+    res.status(200).json({
+      success: true,
+      message: "Store Rating Platform API is running",
+    });
+  });
+
+  app.use(express.json({ limit: "2mb" }));
 
 app.use("/api/health", healthRoutes);
 app.use("/api/auth", authRoutes);
