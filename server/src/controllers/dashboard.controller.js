@@ -1,6 +1,7 @@
 const {
   getAdminDashboard,
 } = require("../services/dashboard.service");
+const { sendServerError } = require("../utils/httpErrors");
 
 const getAdminDashboardController = async (
   req,
@@ -15,10 +16,7 @@ const getAdminDashboardController = async (
       dashboard,
     });
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    return sendServerError(res);
   }
 };
 

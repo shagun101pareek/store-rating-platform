@@ -57,6 +57,7 @@ const loginUser = async ({ email, password }) => {
       process.env.JWT_SECRET,
       {
         expiresIn: "7d",
+        algorithm: "HS256",
       }
     );
   

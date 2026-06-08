@@ -40,9 +40,9 @@ const AdminDashboard = () => {
 
   return (
     <AdminLayout>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
-        <p className="mt-1 text-slate-500">
+      <div className="mb-6 min-w-0 sm:mb-8">
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Dashboard</h1>
+        <p className="mt-1 text-sm text-slate-500 sm:text-base">
           Welcome back, here&apos;s what&apos;s happening with the platform today.
         </p>
       </div>
@@ -79,7 +79,7 @@ const AdminDashboard = () => {
 
           <div className="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-3">
             <div className="rounded-2xl border border-slate-100 bg-white shadow-sm xl:col-span-2">
-              <div className="flex items-center justify-between border-b border-slate-100 px-6 py-5">
+              <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-6 sm:py-5">
                 <h2 className="text-lg font-bold text-slate-900">Recent Activity</h2>
                 <UnavailableData />
               </div>

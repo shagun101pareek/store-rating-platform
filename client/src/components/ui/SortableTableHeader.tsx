@@ -18,7 +18,7 @@ const SortableTableHeader = ({
   const isActive = sortBy === column;
 
   return (
-    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400 sm:px-6 sm:py-4">
       <button
         type="button"
         onClick={() => onSort(column)}

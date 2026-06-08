@@ -62,7 +62,7 @@ const AdminStores = () => {
     <AdminLayout>
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Manage Stores</h1>
+          <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Manage Stores</h1>
           <p className="mt-1 text-slate-500">View and manage all registered stores</p>
         </div>
         <Link
@@ -154,7 +154,7 @@ const AdminStores = () => {
                     order={order}
                     onSort={handleSort}
                   />
-                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                     Actions
                   </th>
                 </tr>
@@ -162,16 +162,16 @@ const AdminStores = () => {
               <tbody className="divide-y divide-slate-100">
                 {stores.map((store) => (
                   <tr key={store.id} className="transition hover:bg-slate-50/50">
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-900">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm font-semibold text-slate-900">
                       {store.name}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-slate-600">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                       {store.email}
                     </td>
-                    <td className="px-6 py-4 text-sm text-slate-600">
+                    <td className="px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                       {store.address}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                       <div className="flex items-center gap-2">
                         <StarRating rating={Number(store.rating)} size="sm" />
                         <span className="text-sm font-semibold text-slate-900">
@@ -179,7 +179,7 @@ const AdminStores = () => {
                         </span>
                       </div>
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                       <Link
                         to={`/admin/stores/${store.id}`}
                         className="text-sm font-semibold text-blue-600 hover:text-blue-700"

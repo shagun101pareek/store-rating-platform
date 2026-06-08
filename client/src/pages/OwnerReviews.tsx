@@ -33,7 +33,7 @@ const OwnerReviews = () => {
   return (
     <OwnerLayout storeName={storeName ?? undefined}>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Customer Reviews</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Customer Reviews</h1>
         <p className="mt-1 text-slate-500">
           View and manage all ratings submitted by your customers.
         </p>

@@ -87,7 +87,7 @@ const UserDashboard = () => {
       onSearchChange={setHeaderSearch}
       onSearchSubmit={handleHeaderSearch}
     >
-      <div className="mb-6 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+      <div className="mb-6 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-6">
         <form onSubmit={handleSearch} className="flex flex-col gap-4 lg:flex-row">
           <div className="relative flex-1">
             <SearchIcon className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
