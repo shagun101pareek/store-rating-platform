@@ -34,7 +34,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-100 px-6 py-4 sm:flex-row">
+    <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-100 px-4 py-3 sm:flex-row sm:px-6 sm:py-4">
       <p className="text-sm text-slate-500">
         Showing {start} to {end} of {totalItems} results
       </p>

@@ -81,7 +81,7 @@ const OwnerRatings = () => {
 
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
-      <div className="flex flex-col gap-4 border-b border-slate-100 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 border-b border-slate-100 px-4 py-4 sm:px-6 sm:py-5 sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-lg font-bold text-slate-900">Customer Ratings</h2>
         <div className="relative max-w-xs">
           <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -138,13 +138,13 @@ const OwnerRatings = () => {
               <tbody className="divide-y divide-slate-100">
                 {paginatedRatings.map((rating) => (
                   <tr key={rating.id} className="hover:bg-slate-50/50">
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-900">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm font-semibold text-slate-900">
                       {rating.user.name}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-slate-600">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                       {rating.user.email}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                       <div className="flex items-center gap-2">
                         <StarRating rating={rating.rating} />
                         <span className="text-sm font-semibold text-slate-900">

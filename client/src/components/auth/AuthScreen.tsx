@@ -149,12 +149,12 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
 
   return (
     <div className="flex min-h-screen flex-col bg-[#f4f7fb]">
-      <header className="flex items-center justify-between px-8 py-5">
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white">
+      <header className="flex items-center justify-between px-4 py-4 sm:px-8 sm:py-5">
+        <div className="flex min-w-0 items-center gap-2.5">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
             <StarLogo className="h-4 w-4" />
           </div>
-          <span className="text-base font-bold text-slate-900">
+          <span className="truncate text-sm font-bold text-slate-900 sm:text-base">
             Store Rating Platform
           </span>
         </div>
@@ -167,12 +167,12 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
         </button>
       </header>
 
-      <div className="flex flex-1 flex-col items-center justify-center px-6 pb-8">
-        <div className="mb-8 text-center">
+      <div className="flex flex-1 flex-col items-center justify-center px-4 pb-8 sm:px-6">
+        <div className="mb-6 text-center sm:mb-8">
           <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50">
             <StarLogo className="h-7 w-7 text-blue-600" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             {mode === "login" ? "Welcome back" : "Create your account"}
           </h1>
           <p className="mt-2 text-slate-500">
@@ -182,7 +182,7 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
           </p>
         </div>
 
-        <div className="w-full max-w-md rounded-2xl border border-slate-100 bg-white p-8 shadow-sm">
+        <div className="w-full max-w-md rounded-2xl border border-slate-100 bg-white p-5 shadow-sm sm:p-8">
           <div className="mb-6 flex rounded-xl bg-slate-100 p-1">
             <button
               type="button"

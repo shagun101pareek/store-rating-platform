@@ -149,7 +149,7 @@ const AdminCreateStore = () => {
       </div>
 
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Register Store</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Register Store</h1>
         <p className="mt-1 text-slate-500">Add a new store to the platform</p>
       </div>
 

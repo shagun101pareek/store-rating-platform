@@ -59,7 +59,7 @@ const AdminGlobalRatings = () => {
   return (
     <AdminLayout>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Global Ratings</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Global Ratings</h1>
         <p className="mt-1 text-slate-500">
           Platform-wide rating overview across all stores
         </p>
@@ -116,7 +116,7 @@ const AdminGlobalRatings = () => {
                         order={order}
                         onSort={handleSort}
                       />
-                      <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                      <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                         Actions
                       </th>
                     </tr>
@@ -127,13 +127,13 @@ const AdminGlobalRatings = () => {
                         key={store.id}
                         className="transition hover:bg-slate-50/50"
                       >
-                        <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-900">
+                        <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm font-semibold text-slate-900">
                           {store.name}
                         </td>
-                        <td className="px-6 py-4 text-sm text-slate-600">
+                        <td className="px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                           {store.address}
                         </td>
-                        <td className="whitespace-nowrap px-6 py-4">
+                        <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                           <div className="flex items-center gap-2">
                             <StarRating
                               rating={Number(store.rating)}
@@ -144,7 +144,7 @@ const AdminGlobalRatings = () => {
                             </span>
                           </div>
                         </td>
-                        <td className="whitespace-nowrap px-6 py-4">
+                        <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                           <Link
                             to={`/admin/stores/${store.id}`}
                             className="text-sm font-semibold text-blue-600 hover:text-blue-700"

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar, { type NavItem } from "../components/layout/Sidebar";
 import TopHeader from "../components/layout/TopHeader";
@@ -30,6 +30,55 @@ const getStoredUser = () => {
   } catch {
     return null;
   }
+};
+
+type AppShellProps = {
+  brandName: string;
+  items: NavItem[];
+  headerProps: React.ComponentProps<typeof TopHeader>;
+  children: ReactNode;
+  footer?: ReactNode;
+};
+
+const AppShell = ({
+  brandName,
+  items,
+  headerProps,
+  children,
+  footer,
+}: AppShellProps) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = sidebarOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [sidebarOpen]);
+
+  return (
+    <div className="min-h-screen w-full overflow-x-hidden bg-slate-50">
+      <Sidebar
+        brandName={brandName}
+        items={items}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
+      <div className="flex min-h-screen w-full min-w-0 flex-col lg:pl-64">
+        <TopHeader
+          {...headerProps}
+          onMenuClick={() => setSidebarOpen(true)}
+        />
+        <main className="w-full min-w-0 flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
+        {footer}
+      </div>
+    </div>
+  );
 };
 
 export const AdminLayout = ({ children }: Props) => {
@@ -74,17 +123,17 @@ export const AdminLayout = ({ children }: Props) => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Sidebar brandName="StoreRate" items={items} />
-      <div className="pl-64">
-        <TopHeader
-          profileName={user?.name || "Admin"}
-          profileEmail={user?.email || ""}
-          headerSearchUnavailable
-        />
-        <main className="p-8">{children}</main>
-      </div>
-    </div>
+    <AppShell
+      brandName="StoreRate"
+      items={items}
+      headerProps={{
+        profileName: user?.name || "Admin",
+        profileEmail: user?.email || "",
+        showSearch: false,
+      }}
+    >
+      {children}
+    </AppShell>
   );
 };
 
@@ -123,17 +172,17 @@ export const OwnerLayout = ({
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Sidebar brandName="StoreRate" items={items} />
-      <div className="pl-64">
-        <TopHeader
-          profileName={storeName ?? user?.name ?? "Store Owner"}
-          profileEmail={user?.email || ""}
-          headerSearchUnavailable
-        />
-        <main className="p-8">{children}</main>
-      </div>
-    </div>
+    <AppShell
+      brandName="StoreRate"
+      items={items}
+      headerProps={{
+        profileName: storeName ?? user?.name ?? "Store Owner",
+        profileEmail: user?.email || "",
+        showSearch: false,
+      }}
+    >
+      {children}
+    </AppShell>
   );
 };
 
@@ -184,28 +233,28 @@ export const UserLayout = ({
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Sidebar brandName="RateIt" items={items} />
-      <div className="pl-64">
-        <TopHeader
-          title={title}
-          profileName={user?.name || "User"}
-          profileRole={user?.role || "CUSTOMER"}
-          searchValue={searchValue}
-          onSearchChange={onSearchChange}
-          onSearchSubmit={onSearchSubmit}
-          showSearch={showSearch}
-        />
-    <main className="p-8">{children}</main>
-        <footer className="border-t border-slate-200 px-8 py-6">
+    <AppShell
+      brandName="RateIt"
+      items={items}
+      headerProps={{
+        title,
+        profileName: user?.name || "User",
+        profileRole: user?.role || "CUSTOMER",
+        searchValue,
+        onSearchChange,
+        onSearchSubmit,
+        showSearch,
+      }}
+      footer={
+        <footer className="border-t border-slate-200 px-4 py-4 md:px-6 lg:px-8 lg:py-6">
           <div className="flex flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
-            
-            <div className="flex gap-6 uppercase tracking-wide">
-            </div>
+            <div className="flex gap-6 uppercase tracking-wide" />
           </div>
         </footer>
-      </div>
-    </div>
+      }
+    >
+      {children}
+    </AppShell>
   );
 };
 

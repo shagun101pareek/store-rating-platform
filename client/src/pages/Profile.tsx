@@ -25,11 +25,11 @@ const Profile = () => {
   return (
     <UserLayout title="Profile" showSearch={false}>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Profile</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Profile</h1>
         <p className="mt-1 text-slate-500">Your account information</p>
       </div>
 
-      <div className="mx-auto max-w-lg rounded-2xl border border-slate-100 bg-white p-8 shadow-sm">
+      <div className="mx-auto max-w-lg rounded-2xl border border-slate-100 bg-white p-5 shadow-sm sm:p-8">
         <dl className="space-y-6">
           <div>
             <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">

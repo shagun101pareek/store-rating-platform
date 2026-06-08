@@ -74,7 +74,7 @@ const AdminUsers = () => {
     <AdminLayout>
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">User Directory</h1>
+          <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">User Directory</h1>
           <p className="mt-1 text-slate-500">View and manage all registered users</p>
         </div>
         <Link
@@ -176,7 +176,7 @@ const AdminUsers = () => {
                     order={order}
                     onSort={handleSort}
                   />
-                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                     Actions
                   </th>
                 </tr>
@@ -184,23 +184,23 @@ const AdminUsers = () => {
               <tbody className="divide-y divide-slate-100">
                 {users.map((user) => (
                   <tr key={user.id} className="transition hover:bg-slate-50/50">
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-900">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm font-semibold text-slate-900">
                       {user.name}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-slate-600">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                       {user.email}
                     </td>
-                    <td className="px-6 py-4 text-sm text-slate-600">
+                    <td className="px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                       {user.address}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                       <span
                         className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${roleBadgeClass(user.role)}`}
                       >
                         {user.role}
                       </span>
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                       <Link
                         to={`/admin/users/${user.id}`}
                         className="text-sm font-semibold text-blue-600 hover:text-blue-700"

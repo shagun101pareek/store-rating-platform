@@ -37,7 +37,7 @@ const OwnerDashboard = () => {
   return (
     <OwnerLayout storeName={dashboard?.storeName ?? undefined}>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Store Analytics</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Store Analytics</h1>
         <p className="mt-1 text-slate-500">
           Track your store performance and customer satisfaction at a glance.
         </p>

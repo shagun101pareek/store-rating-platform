@@ -126,7 +126,7 @@ const OwnerStoreProfile = () => {
   return (
     <OwnerLayout storeName={store?.name}>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Store Profile</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">Store Profile</h1>
         <p className="mt-1 text-slate-500">
           Update your store image and details shown to customers
         </p>

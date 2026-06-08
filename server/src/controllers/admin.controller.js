@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const { createUser } = require("../services/admin.service");
+const { sendServerError } = require("../utils/httpErrors");
 
 const createUserController = async (req, res) => {
   try {
@@ -55,10 +56,7 @@ const getAllUsersController = async (req, res) => {
       users,
     });
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    return sendServerError(res);
   }
 };
 
@@ -77,10 +75,7 @@ const getAllStoresController = async (req, res) => {
       stores,
     });
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    return sendServerError(res);
   }
 };
 

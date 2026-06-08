@@ -1,5 +1,6 @@
 const express = require("express");
 const { authenticate } = require("../middlewares/auth.middleware");
+const { authorize } = require("../middlewares/role.middleware");
 
 const router = express.Router();
 
@@ -10,26 +11,11 @@ router.get("/", (req, res) => {
   });
 });
 
-// router.get(
-//     "/protected",
-//     authenticate,
-//     (req, res) => {
-//       res.json({
-//         success: true,
-//         user: req.user,
-//       });
-//     }
-//   );
-
-  router.get(
-    "/admin-only",
-    authenticate,
-    (req, res) => {
-      res.json({
-        success: true,
-        message: "Welcome Admin",
-      });
-    }
-  );
+router.get("/admin-only", authenticate, authorize("ADMIN"), (req, res) => {
+  res.json({
+    success: true,
+    message: "Welcome Admin",
+  });
+});
 
 module.exports = router;

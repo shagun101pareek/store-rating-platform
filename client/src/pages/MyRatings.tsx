@@ -55,7 +55,7 @@ const MyRatings = () => {
   return (
     <UserLayout title="My Ratings" showSearch={false}>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">My Ratings</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">My Ratings</h1>
         <p className="mt-1 text-slate-500">
           All stores you have rated
         </p>
@@ -80,19 +80,19 @@ const MyRatings = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-100 bg-slate-50/80">
-                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                     Store Name
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                     Address
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                     My Rating
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                     Average Rating
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3 sm:px-6 sm:py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">
                     Actions
                   </th>
                 </tr>
@@ -100,13 +100,13 @@ const MyRatings = () => {
               <tbody className="divide-y divide-slate-100">
                 {ratedStores.map((store) => (
                   <tr key={store.id} className="hover:bg-slate-50/50">
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-900">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm font-semibold text-slate-900">
                       {store.name}
                     </td>
-                    <td className="px-6 py-4 text-sm text-slate-600">
+                    <td className="px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                       {store.address}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                       <div className="flex items-center gap-2">
                         <StarRating rating={store.userRating ?? 0} size="sm" />
                         <span className="text-sm font-semibold text-slate-900">
@@ -114,10 +114,10 @@ const MyRatings = () => {
                         </span>
                       </div>
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-slate-600">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4 text-sm text-slate-600">
                       {store.averageRating}
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">
                       <button
                         type="button"
                         onClick={() => setSelectedStore(store)}
