@@ -58,7 +58,7 @@ const UserHome = () => {
     <UserLayout title="Home" showSearch={false}>
       <div className="mb-8">
         <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
-          Welcome back, {user?.name || "User"}
+          Hi, {user?.name || "there"}
         </h1>
         <p className="mt-1 text-slate-500">{user?.email || ""}</p>
       </div>
@@ -73,39 +73,28 @@ const UserHome = () => {
         <>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <MetricCard
-              label="Total Stores Available"
+              label="Stores"
               value={stores.length.toLocaleString()}
-              subtitle="Across the platform"
               icon={<StoreIcon className="h-5 w-5" />}
               iconBg="bg-blue-50 text-blue-600"
-              trendUnavailable={false}
             />
             <MetricCard
-              label="Stores Rated By You"
+              label="Rated by you"
               value={ratedStores.length.toLocaleString()}
-              subtitle="Your submitted ratings"
               icon={<MyRatingsIcon className="h-5 w-5" />}
               iconBg="bg-emerald-50 text-emerald-600"
-              trendUnavailable={false}
             />
             <MetricCard
-              label="Average Rating Given"
+              label="Your avg. rating"
               value={averageRatingGiven}
-              subtitle={
-                ratedStores.length > 0
-                  ? "Based on your ratings"
-                  : "No ratings yet"
-              }
+              subtitle={ratedStores.length === 0 ? "No ratings yet" : undefined}
               icon={<RatingsStarIcon className="h-5 w-5" />}
               iconBg="bg-amber-50 text-amber-500"
-              trendUnavailable={false}
             />
           </div>
 
           <div className="mt-8">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Quick Actions
-            </p>
+            <h2 className="mb-3 text-sm font-semibold text-slate-700">Shortcuts</h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               <Link
                 to="/stores"
