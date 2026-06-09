@@ -245,13 +245,6 @@ export const UserLayout = ({
         onSearchSubmit,
         showSearch,
       }}
-      footer={
-        <footer className="border-t border-slate-200 px-4 py-4 md:px-6 lg:px-8 lg:py-6">
-          <div className="flex flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
-            <div className="flex gap-6 uppercase tracking-wide" />
-          </div>
-        </footer>
-      }
     >
       {children}
     </AppShell>

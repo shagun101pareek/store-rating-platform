@@ -13,12 +13,10 @@ import {
 } from "../../utils/validation";
 import {
   ArrowRightIcon,
-  CheckCircleIcon,
   LockIcon,
   MailIcon,
   StarLogo,
 } from "../icons";
-import UnavailableData from "../ui/UnavailableData";
 
 type AuthMode = "login" | "signup";
 
@@ -149,7 +147,7 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
 
   return (
     <div className="flex min-h-screen flex-col bg-[#f4f7fb]">
-      <header className="flex items-center justify-between px-4 py-4 sm:px-8 sm:py-5">
+      <header className="flex items-center px-4 py-4 sm:px-8 sm:py-5">
         <div className="flex min-w-0 items-center gap-2.5">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
             <StarLogo className="h-4 w-4" />
@@ -158,13 +156,6 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
             Store Rating Platform
           </span>
         </div>
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="text-sm font-medium text-slate-400 transition hover:text-slate-600"
-        >
-          &lt; Back
-        </button>
       </header>
 
       <div className="flex flex-1 flex-col items-center justify-center px-4 pb-8 sm:px-6">
@@ -177,8 +168,8 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
           </h1>
           <p className="mt-2 text-slate-500">
             {mode === "login"
-              ? "Sign in to continue rating your favorite stores"
-              : "Sign up to start rating your favorite stores"}
+              ? "Sign in to your account"
+              : "Create an account to get started"}
           </p>
         </div>
 
@@ -228,28 +219,16 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
                 error={fieldErrors.email}
               />
 
-              <div>
-                <div className="mb-2 flex items-center justify-between">
-                  <label
-                    htmlFor="password"
-                    className="text-xs font-semibold uppercase tracking-wider text-slate-400"
-                  >
-                    Password
-                  </label>
-                  <UnavailableData />
-                </div>
-                <AuthInput
-                  id="password"
-                  label=""
-                  type="password"
-                  required
-                  value={password}
-                  onChange={setPassword}
-                  placeholder="••••••••"
-                  icon={<LockIcon className="h-5 w-5 text-slate-400" />}
-                  hideLabel
-                />
-              </div>
+              <AuthInput
+                id="password"
+                label="Password"
+                type="password"
+                required
+                value={password}
+                onChange={setPassword}
+                placeholder="••••••••"
+                icon={<LockIcon className="h-5 w-5 text-slate-400" />}
+              />
 
               <button
                 type="submit"
@@ -269,7 +248,7 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
                 required
                 value={name}
                 onChange={setName}
-                placeholder="20–60 characters"
+                placeholder="Your full name"
                 error={fieldErrors.name}
               />
               <AuthInput
@@ -290,7 +269,7 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
                 required
                 value={address}
                 onChange={setAddress}
-                placeholder="Max 400 characters"
+                placeholder="Street, city, country"
                 error={fieldErrors.address}
               />
               <AuthInput
@@ -300,7 +279,7 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
                 required
                 value={password}
                 onChange={setPassword}
-                placeholder="8–16 chars, uppercase + special"
+                placeholder="Create a password"
                 icon={<LockIcon className="h-5 w-5 text-slate-400" />}
                 error={fieldErrors.password}
               />
@@ -325,7 +304,7 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
                   onClick={() => switchMode("signup")}
                   className="font-semibold text-blue-600 hover:text-blue-700"
                 >
-                  Sign up for free
+                  Sign up
                 </button>
               </>
             ) : (
@@ -342,29 +321,8 @@ const AuthScreen = ({ mode: initialMode }: Props) => {
             )}
           </p>
 
-          <div className="mt-8">
-            <div className="relative mb-4">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-slate-200" />
-              </div>
-              <div className="relative flex justify-center">
-                <span className="bg-white px-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
-                  Secure
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-xs text-slate-400">
-              <CheckCircleIcon className="h-4 w-4 text-emerald-500" />
-              <span>SSL Encrypted Connection</span>
-            </div>
-          </div>
         </div>
       </div>
-
-      <footer className="px-6 pb-8 text-center text-[10px] uppercase leading-relaxed tracking-wider text-slate-400">
-        By continuing, you agree to our Terms of Service and Privacy Policy.
-        <br />© 2024 Store Rating Platform Inc.
-      </footer>
     </div>
   );
 };
@@ -398,7 +356,7 @@ const AuthInput = ({
     {!hideLabel && (
       <label
         htmlFor={id}
-        className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-400"
+        className="mb-2 block text-sm font-medium text-slate-600"
       >
         {label}
       </label>

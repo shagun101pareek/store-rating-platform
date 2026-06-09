@@ -43,8 +43,8 @@ const StoreCard = ({ store, onRate }: Props) => {
 
         <div className="mb-5 grid grid-cols-2 gap-4 border-t border-slate-100 pt-4">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-              Global Rating
+            <p className="text-xs font-medium text-slate-500">
+              Rating
             </p>
             <div className="mt-1.5 flex items-center gap-2">
               <StarRating rating={Number(store.averageRating)} size="sm" />
@@ -55,8 +55,8 @@ const StoreCard = ({ store, onRate }: Props) => {
           </div>
 
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-              Your Rating
+            <p className="text-xs font-medium text-slate-500">
+              Yours
             </p>
             <div className="mt-1.5">
               {store.hasRated && store.userRating !== null ? (

@@ -69,15 +69,12 @@ const OwnerDashboard = () => {
             subtitle={`${dashboard.totalRatings} total reviews`}
             icon={<RatingsStarIcon className="h-5 w-5" />}
             iconBg="bg-amber-50 text-amber-500"
-            trendUnavailable={false}
           />
           <MetricCard
             label="Total Ratings"
             value={dashboard.totalRatings.toLocaleString()}
-            subtitle="All time"
             icon={<UsersIcon className="h-5 w-5" />}
             iconBg="bg-blue-50 text-blue-600"
-            trendUnavailable={false}
           />
         </div>
       )}

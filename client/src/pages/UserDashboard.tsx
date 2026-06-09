@@ -8,7 +8,7 @@ import ErrorState from "../components/ui/ErrorState";
 import EmptyState from "../components/ui/EmptyState";
 import { fetchStores } from "../services/storeService";
 import { createRating, updateRating } from "../services/ratingService";
-import { ChevronDownIcon, FilterIcon, SearchIcon } from "../components/icons";
+import { ChevronDownIcon, SearchIcon } from "../components/icons";
 import type { NameSortOrder, StoreListing } from "../types/api";
 
 const ITEMS_PER_PAGE = 9;
@@ -88,7 +88,7 @@ const UserDashboard = () => {
       onSearchSubmit={handleHeaderSearch}
     >
       <div className="mb-6 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-6">
-        <form onSubmit={handleSearch} className="flex flex-col gap-4 lg:flex-row">
+        <form onSubmit={handleSearch} className="flex flex-col gap-4 sm:flex-row">
           <div className="relative flex-1">
             <SearchIcon className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
             <input
@@ -105,14 +105,6 @@ const UserDashboard = () => {
           >
             Search
           </button>
-          <button
-            type="button"
-            disabled
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-400"
-          >
-            <FilterIcon className="h-4 w-4" />
-            Advanced Filters
-          </button>
         </form>
       </div>
 
@@ -123,9 +115,7 @@ const UserDashboard = () => {
             {search ? ` matching "${search}"` : ""}
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-              Sort by name:
-            </span>
+            <span className="text-sm text-slate-500">Sort:</span>
             <div className="relative">
               <select
                 value={sortOrder}

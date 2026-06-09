@@ -52,12 +52,7 @@ const Profile = () => {
               Address
             </dt>
             <dd className="mt-1 text-base text-slate-700">
-              {user?.address || (
-                <span className="text-slate-400">
-                  Not available in your session. Address is stored on your
-                  account but not returned by the login API.
-                </span>
-              )}
+              {user?.address || "—"}
             </dd>
           </div>
           <div>

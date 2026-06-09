@@ -80,7 +80,6 @@ const AdminGlobalRatings = () => {
               subtitle="Across all stores"
               icon={<RatingsStarIcon className="h-5 w-5" />}
               iconBg="bg-amber-50 text-amber-500"
-              trendUnavailable={false}
             />
           </div>
 
